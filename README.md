@@ -1,4 +1,10 @@
-# Learn Go with Tests
+# Learn Go with Tests の fork
+
+```
+$ git remote fork add https://github.com/quii/learn-go-with-tests.git
+$ git fetch fork
+$ git rebase fork/master
+```
 
 <p align="center">
   <img src="red-green-blue-gophers-smaller.png" />
