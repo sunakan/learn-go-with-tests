@@ -17,6 +17,7 @@ func Hello(name string, language string) string {
 
 // 挨拶プレフィックス
 // 最後にprefixを返すよ
+// 小文字から始まるとprivate（同一パッケージならcall可能!!）
 func greetingPrefix(language string) (prefix string) {
 	switch language {
 	case french:
