@@ -14,7 +14,8 @@ import "testing"
 // これで現在いる場所をgithub.com/sunakan/tddと誤認させることが可能
 func TestHello(t *testing.T) {
 	// t.Helper()とは...?
-	//
+	// ヘルパーとして必要な文
+	// t.Helperを書かずに失敗させると、failした行数がt.Errorfを書いた行になってしまう
 	assertCorrectMessage := func(t *testing.T, got, want string) {
 		t.Helper()
 		if got != want {
@@ -22,11 +23,18 @@ func TestHello(t *testing.T) {
 		}
 	}
 
-	// t.Runとは
+	// t.Runとは...?
+	// t.Run("テスト名", 無名関数)でサブテストができるよ
+	// サブサブテストもできるよ
 	t.Run("saying hello to people", func(t *testing.T) {
 		got := Hello("Chris")
 		want := "Hello, Chris"
 		assertCorrectMessage(t, got, want)
+		t.Run("sub sub test", func(t *testing.T) {
+			got := Hello("Suna")
+			want := "Hello, Suna"
+			assertCorrectMessage(t, got, want)
+		})
 	})
 
 	t.Run("empty string defaults to 'World'", func(t *testing.T) {
